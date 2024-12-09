@@ -41,6 +41,7 @@ class HomeWorkTest {
 
     @SneakyThrows
     private void assertRun(String pattern) {
+        String s = String.format(pattern, "answer");
         String answer = Files.readString(Path.of("target/" + String.format(pattern, "answer")));
         String out = Files.readString(Path.of("upit/" + String.format(pattern, "out")));
         assertEquals(out, answer);

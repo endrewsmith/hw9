@@ -19,7 +19,7 @@ public class HomeWork {
         if (out == null) {
             throw new IllegalArgumentException("Выходящий поток не может быть null");
         }
-
+        var dis = new DataInputStream(in);
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
         PrintWriter pw = new PrintWriter(out);
 
@@ -39,18 +39,24 @@ public class HomeWork {
             q--;
             String[] command = br.readLine().split(" ");
             int operation = Integer.parseInt(command[0]);
-            int x = Integer.parseInt(command[1]);
-            int y = Integer.parseInt(command[2]);
-            long z = Long.parseLong(command[3]);
+
+            int x, y;
+            long z;
             switch (operation) {
                 // update
                 case 1:
+                    x = Integer.parseInt(command[1]);
+                    y = Integer.parseInt(command[2]);
+                    z = Long.parseLong(command[3]);
                     for (int i = x; i <= y; i++) {
                         a[i] = z;
                     }
                     break;
                 // add
                 case 2:
+                    x = Integer.parseInt(command[1]);
+                    y = Integer.parseInt(command[2]);
+                    z = Long.parseLong(command[3]);
                     long sum_2 = 0;
                     for (int i = x; i <= y; i++) {
                         sum_2 += z;
@@ -69,6 +75,8 @@ public class HomeWork {
                     break;
                 // sum
                 case 4:
+                    x = Integer.parseInt(command[1]);
+                    y = Integer.parseInt(command[2]);
                     long sum_4 = 0;
                     for (int i = x; i <= y; i++) {
                         sum_4 += a[i];
@@ -77,5 +85,6 @@ public class HomeWork {
                     break;
             }
         }
+        pw.flush();
     }
 }
